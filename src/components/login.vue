@@ -41,9 +41,12 @@ export default {
         var url=this.base_url+"/op/login"
        Api.post(url,data).then(function (rs) {
             if(rs.data.info){
-                sessionStorage.setItem("sid",rs.data.sid)
-                localStorage.setItem("username",that.userName)
-                console.log(that.userName)
+                // sessionStorage.setItem("sid",rs.data.sid)
+                // localStorage.setItem("username",that.userName)
+                // vuex状态管理
+               that.$store.dispatch('username',that.userName)
+               that.$store.dispatch('sid',rs.data.sid)
+                // console.log(that.userName)
                 that.$router.push("/")
 
             }

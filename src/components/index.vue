@@ -11,7 +11,6 @@
 	    <div class="blank"></div>
 		<!-- 轮播图 -->
 	    <swiper :list="demo03_list" auto   dots-class="custom-bottom" dots-position="center"></swiper>
-	    <!-- 九宫格 -->
     	<flexbox style="margin:10px 0" class="fc" >
 	        <flexbox-item v-if="index<5" v-for="(sort,index) in sorts">
 	        	<div class="flex-demo">
@@ -190,7 +189,7 @@
 	   	 	Api.get(pic_url,data).then(function (rs) {
 	            if(rs.data){
 	            	that.sorts=rs.data.rows;
-	            	console.log(JSON.stringify(that.sorts))
+	            	// console.log(JSON.stringify(that.sorts))
 	            }
 	       	})
 	       
@@ -211,9 +210,11 @@
 	      console.log('on item click')
 	    },
 	    showSheet(){
-	    	let sid = sessionStorage.getItem("sid")
-	    	let username = localStorage.getItem("username")
-	    	console.log(username)
+	    	// let sid = sessionStorage.getItem("sid")
+	    	// let username = localStorage.getItem("username")
+	    	let username=this.$store.state.Vuex_use.username;
+	  		let sid=this.$store.state.Vuex_use.sid;
+	  		
 	  		if(sid&&sid.length>11){
 	  			this.msg = sid
 	  			this.menus1 = {
@@ -253,8 +254,9 @@
 	    },
 	    linkDetil(){
 	    	this.$router.push("/detil")
-	    }
-	  },
+	    },
+	  }
+	  	
 	}
 </script>
 <style lang="css">

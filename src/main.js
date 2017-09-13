@@ -16,6 +16,8 @@ import sort from './components/sort'
 import quan from './components/quan'
 import fuli from './components/fuli'
 import zdm from './components/zdm'
+import store from './store/'
+
 
 Vue.use(VueRouter,VueAxios,axios)
 
@@ -66,6 +68,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   router,
+  store,
   render: h => h(App),
   data:{
     // 空的实例放到根组件下，所有的子组件都能调用(非父子间通信)   
